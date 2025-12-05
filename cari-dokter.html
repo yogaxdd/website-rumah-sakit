@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Dokter - Rumah Sakit Nusantara Medika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <span>Jl. Siwalankerto Permai I, Wonocolo, Surabaya</span>
+                <span>Phone: +62 882-3134-7368</span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="src/logo.png" alt="RS Nusantara Medika">
+                <div class="logo-text">
+                    <h2>RS NUSANTARA</h2>
+                    <h2>MEDIKA</h2>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#profil">Profil</a></li>
+                <li><a href="index.html#fasilitas">Fasilitas</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="index.html#pelayanan">Pelayanan</a></li>
+                <li><a href="index.html#kontak">Kontak</a></li>
+            </ul>
+            <!-- <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button type="submit">
+                    <img src="src/search.png" alt="search">
+                </button>
+            </div> -->
+        </nav>
+    </header>
+
+    <div class="cari-dokter-page">
+        <!-- Search Section -->
+        <div class="search-section">
+            <button class="btn-filter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                    <circle cx="8" cy="6" r="2" fill="white"></circle>
+                    <circle cx="16" cy="12" r="2" fill="white"></circle>
+                    <circle cx="12" cy="18" r="2" fill="white"></circle>
+                </svg>
+                Filter
+            </button>
+            <div class="search-input-wrapper">
+                <input type="text" placeholder="Nama Dokter, Spesialis, atau Rumah Sakit" class="search-input-dokter">
+                <button class="btn-cari-dokter">Cari 🔍</button>
+            </div>
+        </div>
+
+        <!-- Sort Section -->
+        <div class="sort-section">
+            <h3>Dokter</h3>
+            <div class="sort-wrapper">
+                <label>Urutkan:</label>
+                <select class="sort-select">
+                    <option value="nama">Nama</option>
+                    <option value="spesialis">Spesialis</option>
+                    <option value="jadwal">Jadwal</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Doctor Cards -->
+        <div class="doctor-list">
+            <!-- Doctor Card 1 - dr. Yoga Rizki Pratama -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="src/yoga.jpg" alt="dr. Yoga Rizki Pratama" class="doctor-photo">
+                </div>
+                <div class="doctor-info">
+                    <h4>dr. Yoga Rizki Pratama, Sp.M, Sp.THT-KL</h4>
+                    <p class="doctor-specialty">Spesialis:</p>
+                    <div class="doctor-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Senin</span>
+                            <span class="detail-value">: Dokter Umum</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Selasa</span>
+                            <span class="detail-value">: THT</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Rabu</span>
+                            <span class="detail-value">: Mata</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Kamis</span>
+                            <span class="detail-value">: Dokter Umum</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Jum'at</span>
+                            <span class="detail-value">: THT</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Sabtu</span>
+                            <span class="detail-value">: Mata</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-action">
+                    <button class="btn-daftar-doctor">Daftar</button>
+                </div>
+            </div>
+
+            <!-- Doctor Card 2 - drg. Muhammad Dzikrul Kahfi -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="src/kv.jpg" alt="drg. Muhammad Dzikrul Kahfi, Sp.GK, Sp.A" class="doctor-photo">
+                </div>
+                <div class="doctor-info">
+                    <h4>drg. Muhammad Dzikrul Kahfi, Sp.GK, Sp.A</h4>
+                    <p class="doctor-specialty">Spesialis:</p>
+                    <div class="doctor-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Senin</span>
+                            <span class="detail-value">: Gigi</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Selasa</span>
+                            <span class="detail-value">: Gizi</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Rabu</span>
+                            <span class="detail-value">: Anak</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Kamis</span>
+                            <span class="detail-value">: Gigi</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Jumat</span>
+                            <span class="detail-value">: Gizi</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Sabtu</span>
+                            <span class="detail-value">: Anak</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-action">
+                    <button class="btn-daftar-doctor">Daftar</button>
+                </div>
+            </div>
+
+            <!-- Doctor Card 3 - dr. Gavin Naraya Caesaerar -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="src/gapin.jpg" alt="dr. Gavin Naraya Caesaerar, Sp.PD, Sp.JP" class="doctor-photo">
+                </div>
+                <div class="doctor-info">
+                    <h4>dr. Gavin Naraya Caesaerar, Sp.PD, Sp.JP</h4>
+                    <p class="doctor-specialty">Spesialis:</p>
+                    <div class="doctor-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Senin</span>
+                            <span class="detail-value">: Bedah Umum</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Selasa</span>
+                            <span class="detail-value">: Penyakit Dalam</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Rabu</span>
+                            <span class="detail-value">: Jantung</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Kamis</span>
+                            <span class="detail-value">: Bedah Umum</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Jum'at</span>
+                            <span class="detail-value">: Penyakit Dalam</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Sabtu</span>
+                            <span class="detail-value">: Jantung</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-action">
+                    <button class="btn-daftar-doctor">Daftar</button>
+                </div>
+            </div>
+
+            <!-- Doctor Card 4 - dr. Maydwi Marsyahada -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="src/may.png" alt="dr. Maydwi Marsyahada, Sp.P, Sp.KK" class="doctor-photo">
+                </div>
+                <div class="doctor-info">
+                    <h4>dr. Maydwi Marsyahada, Sp.P, Sp.KK</h4>
+                    <p class="doctor-specialty">Spesialis:</p>
+                    <div class="doctor-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Senin</span>
+                            <span class="detail-value">: Paru</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Selasa</span>
+                            <span class="detail-value">: Saraf</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Rabu</span>
+                            <span class="detail-value">: Kulit & Kelamin</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Kamis</span>
+                            <span class="detail-value">: Paru</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Jum'at</span>
+                            <span class="detail-value">: Saraf</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Sabtu</span>
+                            <span class="detail-value">: Kulit & Kelamin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-action">
+                    <button class="btn-daftar-doctor">Daftar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="kontak">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.117804009157!2d112.73641607588085!3d-7.340665672209479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb364f0f62cf%3A0xc59a33aa85cc80ca!2sSMK%20Negeri%2012%20Surabaya!5e0!3m2!1sid!2sid!4v1763644395778!5m2!1sid!2sid"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="contact-info">
+            <p>Jl. Siwalankerto Permai I, Wonocolo, Surabaya</p>
+            <p>Phone: +62 812-3456-7890</p>
+            <p>Email: rs.nusantara@medika.com</p>
+        </div>
+        <div class="message-box">
+            <h3><span class="icon"><img src="src/email.png" alt="Email"></span> Kirimkan Kami Pesan</h3>
+            <p>Kami senang dapat membantu dan melayani keluhan bapak/ibu sebagai pasien dan pengunjung. Saran dan
+                masukan dari anda juga sangat berguna untuk evaluasi kami.</p>
+            <button class="btn-tulis">Tulis</button>
+        </div>
+    </footer>
+</body>
+
+</html>

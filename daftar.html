@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <span>Jl. Siwalankerto Permai I, Wonocolo, Surabaya</span>
+                <span>Phone: +62 882-3134-7368</span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="src/logo.png" alt="RS Nusantara Medika">
+                <div class="logo-text">
+                    <h2>RS NUSANTARA</h2>
+                    <h2>MEDIKA</h2>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#fasilitas">Fasilitas</a></li>
+                <li><a href="#pelayanan">Pelayanan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <!-- <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button type="submit">
+                    <img src="src/search.png" alt="search">
+                </button>
+            </div> -->
+        </nav>
+    </header>
+
+    <div class="card-pendaftaran">
+        <h2>Pendaftaran Online</h2>
+        <form>
+            <label for="nama-lengkap">Nama Lengkap</label>
+            <input type="text" id="nama-lengkap" name="nama-lengkap"><br>
+            <label for="nik">NIK/No. KTP</label>
+            <input type="number" id="nik" name="nik"><br>
+            <label for="tgl-lahir">Tanggal Lahir</label>
+            <input type="date" id="tgl-lahir" name="tgl-lahir"><br>
+            <label for="jk">Jenis Kelamin</label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Laki-laki</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Perempuan</label><br>
+            <label for="no-hp">Nomor HP Aktif</label>
+            <input type="number" id="no-hp" value="no-hp">
+        </form>
+    </div>
+
+</body>
+
+</html>

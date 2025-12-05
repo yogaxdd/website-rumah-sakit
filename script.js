@@ -34,7 +34,7 @@ const content = {
         <br>
         <p style="font-style: italic;">Wassalamualaikum Warahmatullahi Wabarakatuh"</p>
         <br>
-        <p><strong>Dr. Ahmad Hidayat, Sp.PD</strong><br>Direktur RS Nusantara Medika</p>
+        <p><strong>Dr. Yoga Rizki Pratama, Sp.PD</strong><br>Direktur RS Nusantara Medika</p>
     `,
     'PENGHARGAAN & AKREDITASI': `
         <h3 style="color: #63AE52; margin-bottom: 15px;">AKREDITASI</h3>
