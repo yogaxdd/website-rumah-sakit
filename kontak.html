@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - RS Nusantara Medika</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <span>Jl. Siwalankerto Permai I, Wonocolo, Surabaya</span>
+                <span>Phone: +62 882-3134-7368</span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="src/logo.png" alt="RS Nusantara Medika">
+                <div class="logo-text">
+                    <h2>RS NUSANTARA</h2>
+                    <h2>MEDIKA</h2>
+                </div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#profil">Profil</a></li>
+                <li><a href="index.html#fasilitas">Fasilitas</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="index.html#pelayanan">Pelayanan</a></li>
+                <li><a href="index.html#kontak">Kontak</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <div class="kontak-page">
+        <div class="kontak-container">
+            <h2>Kirimkan Kami Pesan</h2>
+            <p class="kontak-desc">Kami senang dapat membantu dan melayani keluhan bapak/ibu sebagai pasien dan
+                pengunjung. Saran dan masukan dari Anda sangat berguna untuk evaluasi kami.</p>
+
+            <form class="kontak-form" id="kontak-form">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subjek">Subjek</label>
+                    <input type="text" id="subjek" name="subjek" placeholder="Subjek pesan" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan">Pesan</label>
+                    <textarea id="pesan" name="pesan" rows="6" placeholder="Tulis pesan Anda di sini..."
+                        required></textarea>
+                </div>
+
+                <div class="recaptcha-container">
+                    <div class="g-recaptcha" data-sitekey="6LfW2CQsAAAAAF9xh302lRWByX2IXKQ4emghlzot"
+                        id="recaptcha-kontak">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-kirim-pesan">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="kontak">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.117804009157!2d112.73641607588085!3d-7.340665672209479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb364f0f62cf%3A0xc59a33aa85cc80ca!2sSMK%20Negeri%2012%20Surabaya!5e0!3m2!1sid!2sid!4v1763644395778!5m2!1sid!2sid"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="contact-info">
+            <p>Jl. Siwalankerto Permai I, Wonocolo, Surabaya</p>
+            <p>Phone: +62 812-3456-7890</p>
+            <p>Email: rs.nusantara@medika.com</p>
+        </div>
+        <div class="message-box">
+            <h3><span class="icon"><img src="src/email.png" alt="Email"></span> Kirimkan Kami Pesan</h3>
+            <p>Kami senang dapat membantu dan melayani keluhan bapak/ibu sebagai pasien dan pengunjung. Saran dan
+                masukan dari anda juga sangat berguna untuk evaluasi kami.</p>
+            <a href="kontak.html" class="btn-tulis">Tulis</a>
+        </div>
+    </footer>
+
+    <script>
+        // Form validation
+        document.getElementById('kontak-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) {
+                alert('Mohon verifikasi bahwa Anda bukan robot dengan mencentang reCAPTCHA.');
+                return false;
+            }
+
+            const nama = document.getElementById('nama').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subjek = document.getElementById('subjek').value.trim();
+            const pesan = document.getElementById('pesan').value.trim();
+
+            if (!nama || !email || !subjek || !pesan) {
+                alert('Mohon lengkapi semua field.');
+                return false;
+            }
+
+            alert('Pesan Anda berhasil dikirim! Terima kasih telah menghubungi RS Nusantara Medika.');
+            this.reset();
+            grecaptcha.reset();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

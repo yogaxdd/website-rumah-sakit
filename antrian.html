@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berhasil Mendaftar - RS Nusantara Medika</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="antrian-page">
+        <div class="antrian-container">
+            <!-- Success Icon -->
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <h1>Berhasil Mendaftar!</h1>
+
+            <p class="antrian-subtitle">Unduh Kartu antrean berikut lalu cetak berwarna.</p>
+
+            <!-- Kartu Antrean -->
+            <div class="kartu-antrean" id="kartu-antrean">
+                <div class="kartu-header">
+                    <div class="kartu-logo">
+                        <img src="src/logo.png" alt="Logo">
+                        <div class="kartu-logo-text">
+                            <span>RS NUSANTARA</span>
+                            <span>MEDIKA</span>
+                        </div>
+                    </div>
+                    <h2>KARTU ANTREAN</h2>
+                </div>
+                <div class="kartu-body">
+                    <p class="nama-pasien" id="nama-pasien">Robert Dwayne Johnson</p>
+                    <div class="nomor-antrean" id="nomor-antrean">0067</div>
+                    <p class="kartu-note">SIMPAN BAIK-BAIK DAN PASTIKAN SETELAH DICETAK, INFORMASI MASIH BISA DIBACA</p>
+                </div>
+            </div>
+
+            <button class="btn-unduh" onclick="downloadKartu()">UNDUH</button>
+
+            <!-- Instructions -->
+            <div class="antrian-instructions">
+                <h3>Apa selanjutnya?</h3>
+                <ol>
+                    <li>Pergi ke Rumah Sakit Medika Nusantara dan berikan kartu antrean dalam bentuk sudah dicetak
+                        berwarna. Pastikan pula tidak ada kerusakan atau ketidakjelasan informasi pada kartu tersebut.
+                    </li>
+                    <li>Berikan kartu antrean tersebut ke loket pendaftaran dan tunggu hingga mereka memberikan
+                        salinannya kepada Anda.</li>
+                    <li>Setelah menerima salinan kartu antrean, silahkan duduk di ruang tunggu hingga nomor antrean Anda
+                        dipanggil dan diberikan instruksi selanjutnya.</li>
+                </ol>
+            </div>
+
+            <a href="index.html" class="btn-kembali">Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <script>
+        // Get data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const nama = urlParams.get('nama') || 'Pasien';
+        const dokter = urlParams.get('dokter') || '-';
+        const antrean = urlParams.get('antrean') || Math.floor(Math.random() * 9000 + 1000);
+
+        // Display data
+        document.getElementById('nama-pasien').textContent = nama;
+        document.getElementById('nomor-antrean').textContent = String(antrean).padStart(4, '0');
+
+        // Download kartu function
+        function downloadKartu() {
+            const kartu = document.getElementById('kartu-antrean');
+
+            // Create canvas and download
+            html2canvas(kartu).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'kartu-antrean-' + nama.replace(/\s+/g, '-') + '.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
