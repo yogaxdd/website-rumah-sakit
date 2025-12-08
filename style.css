@@ -1452,6 +1452,7 @@ footer {
     display: inline-block;
     text-decoration: none;
 }
+
 .artikel-detail-image img {
     width: 100%;
     height: 100%;
@@ -1462,4 +1463,347 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .nav-links {
+        gap: 25px;
+    }
+
+    .card-pendaftaran,
+    .artikel,
+    .cari-dokter-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: calc(100% - 40px);
+    }
+
+    .profil-container {
+        flex-direction: column;
+    }
+
+    .profil-sidebar {
+        flex: 1;
+    }
+
+    .section-fasilitas,
+    .section-pelayanan {
+        flex-direction: column;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+
+    /* Header & Top Bar */
+    .top-bar .container {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 20px;
+    }
+
+    .nav-links li a {
+        font-size: 0.9rem;
+    }
+
+    /* Hero */
+    .hero {
+        height: 60vh;
+        margin-top: 150px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+        padding: 0 15px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    /* Action Cards */
+    .action-cards-container {
+        flex-direction: column;
+        margin-top: 30px;
+        padding: 0 15px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    /* Card Pendaftaran & Artikel Container */
+    .card-pendaftaran,
+    .artikel,
+    .cari-dokter-container {
+        margin: 120px 15px 30px;
+        max-width: calc(100% - 30px);
+    }
+
+    /* Profil Section */
+    .section-profil {
+        padding: 0 15px;
+    }
+
+    .profil-title {
+        font-size: 1.8rem;
+    }
+
+    .profil-text-box {
+        padding: 20px;
+    }
+
+    /* Priority Section */
+    .priority-section {
+        padding: 50px 15px;
+    }
+
+    .priority-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .priority-section .icon-hands img {
+        width: 100px;
+    }
+
+    /* Footer */
+    footer {
+        flex-direction: column;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 200px;
+    }
+
+    .contact-info,
+    .message-box {
+        width: 100%;
+    }
+
+    /* Cari Dokter Page */
+    .cari-dokter-page {
+        margin-top: 160px;
+        padding: 0 15px;
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+
+    .btn-filter {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-input-wrapper {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn-cari-dokter {
+        width: 100%;
+    }
+
+    .sort-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .sort-section h3 {
+        font-size: 1.4rem;
+    }
+
+    .doctor-card {
+        flex-direction: column;
+    }
+
+    .placeholder-doctor,
+    .doctor-photo {
+        width: 100%;
+        height: 200px;
+    }
+
+    .doctor-action {
+        justify-content: center;
+    }
+
+    .btn-daftar-doctor {
+        width: 100%;
+    }
+
+    /* Artikel Page */
+    .artikel-page {
+        margin-top: 160px;
+        padding: 0 15px;
+    }
+
+    .artikel-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .artikel-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .artikel-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Artikel Detail Page */
+    .artikel-detail-page {
+        margin-top: 160px;
+        padding: 0 15px;
+    }
+
+    .artikel-detail-image {
+        height: 200px;
+    }
+
+    .artikel-detail-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .artikel-detail-meta h2 {
+        font-size: 1.1rem;
+    }
+
+    .artikel-social {
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    .artikel-detail-content {
+        line-height: 1.6;
+    }
+
+    .artikel-detail-content p {
+        font-size: 0.95rem;
+    }
+
+    /* Komentar Section */
+    .komentar-section {
+        padding: 20px 15px;
+    }
+
+    .captcha-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .g-recaptcha {
+        transform: scale(0.85);
+        transform-origin: left top;
+    }
+
+    .btn-kirim {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    .logo-text h2 {
+        font-size: 0.7rem;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    .nav-links {
+        gap: 10px 15px;
+    }
+
+    .nav-links li a {
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        height: 50vh;
+        margin-top: 180px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .card-pendaftaran,
+    .artikel,
+    .cari-dokter-container {
+        margin-top: 150px;
+        padding: 15px;
+    }
+
+    .profil-title {
+        font-size: 1.5rem;
+    }
+
+    .priority-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .artikel-detail-header {
+        gap: 10px;
+    }
+
+    .artikel-detail-meta h2 {
+        font-size: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.2rem;
+    }
+
+    .g-recaptcha {
+        transform: scale(0.77);
+    }
+
+    .doctor-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        gap: 2px;
+    }
 }
