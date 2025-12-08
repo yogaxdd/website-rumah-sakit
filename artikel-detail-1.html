@@ -129,6 +129,26 @@
             <button class="btn-tulis">Tulis</button>
         </div>
     </footer>
+
+    <script>
+        // Validasi form komentar
+        document.querySelector('.komentar-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Cek apakah reCAPTCHA sudah diisi
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) {
+                alert('Mohon verifikasi bahwa Anda bukan robot dengan mencentang reCAPTCHA.');
+                return false;
+            }
+
+            // Jika semua validasi berhasil
+            alert('Komentar berhasil dikirim! Terima kasih atas partisipasi Anda.');
+            this.reset();
+            grecaptcha.reset();
+        });
+    </script>
 </body>
 
 </html>

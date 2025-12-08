@@ -44,20 +44,27 @@
     <div class="cari-dokter-page">
         <!-- Search Section -->
         <div class="search-section">
-            <button class="btn-filter">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="4" y1="6" x2="20" y2="6"></line>
-                    <line x1="4" y1="12" x2="20" y2="12"></line>
-                    <line x1="4" y1="18" x2="20" y2="18"></line>
-                    <circle cx="8" cy="6" r="2" fill="white"></circle>
-                    <circle cx="16" cy="12" r="2" fill="white"></circle>
-                    <circle cx="12" cy="18" r="2" fill="white"></circle>
-                </svg>
-                Filter
-            </button>
+            <div class="filter-dropdown">
+                <label for="kategori-filter">Kategori:</label>
+                <select id="kategori-filter" class="sort-select">
+                    <option value="">Semua Spesialis</option>
+                    <option value="Dokter Umum">Dokter Umum</option>
+                    <option value="THT">THT</option>
+                    <option value="Mata">Mata</option>
+                    <option value="Gigi">Gigi</option>
+                    <option value="Gizi">Gizi</option>
+                    <option value="Anak">Anak</option>
+                    <option value="Bedah Umum">Bedah Umum</option>
+                    <option value="Penyakit Dalam">Penyakit Dalam</option>
+                    <option value="Jantung">Jantung</option>
+                    <option value="Paru">Paru</option>
+                    <option value="Saraf">Saraf</option>
+                    <option value="Kulit & Kelamin">Kulit & Kelamin</option>
+                </select>
+            </div>
             <div class="search-input-wrapper">
-                <input type="text" placeholder="Nama Dokter, Spesialis, atau Rumah Sakit" class="search-input-dokter">
-                <button class="btn-cari-dokter">Cari 🔍</button>
+                <input type="text" placeholder="Cari nama dokter..." class="search-input-dokter" id="search-dokter">
+                <button class="btn-cari-dokter" onclick="filterDoctors()">Cari 🔍</button>
             </div>
         </div>
 
@@ -77,7 +84,7 @@
         <!-- Doctor Cards -->
         <div class="doctor-list">
             <!-- Doctor Card 1 - dr. Yoga Rizki Pratama -->
-            <div class="doctor-card">
+            <div class="doctor-card" data-name="dr. Yoga Rizki Pratama" data-spesialis="Dokter Umum,THT,Mata">
                 <div class="doctor-image">
                     <img src="src/yoga.jpg" alt="dr. Yoga Rizki Pratama" class="doctor-photo">
                 </div>
@@ -112,12 +119,12 @@
                     </div>
                 </div>
                 <div class="doctor-action">
-                    <button class="btn-daftar-doctor">Daftar</button>
+                    <button class="btn-daftar-doctor" onclick="daftarDokter('dr. Yoga Rizki Pratama')">Daftar</button>
                 </div>
             </div>
 
             <!-- Doctor Card 2 - drg. Muhammad Dzikrul Kahfi -->
-            <div class="doctor-card">
+            <div class="doctor-card" data-name="drg. Muhammad Dzikrul Kahfi" data-spesialis="Gigi,Gizi,Anak">
                 <div class="doctor-image">
                     <img src="src/kv.jpg" alt="drg. Muhammad Dzikrul Kahfi, Sp.GK, Sp.A" class="doctor-photo">
                 </div>
@@ -152,12 +159,14 @@
                     </div>
                 </div>
                 <div class="doctor-action">
-                    <button class="btn-daftar-doctor">Daftar</button>
+                    <button class="btn-daftar-doctor"
+                        onclick="daftarDokter('drg. Muhammad Dzikrul Kahfi')">Daftar</button>
                 </div>
             </div>
 
             <!-- Doctor Card 3 - dr. Gavin Naraya Caesaerar -->
-            <div class="doctor-card">
+            <div class="doctor-card" data-name="dr. Gavin Naraya Caesaerar"
+                data-spesialis="Bedah Umum,Penyakit Dalam,Jantung">
                 <div class="doctor-image">
                     <img src="src/gapin.jpg" alt="dr. Gavin Naraya Caesaerar, Sp.PD, Sp.JP" class="doctor-photo">
                 </div>
@@ -192,12 +201,13 @@
                     </div>
                 </div>
                 <div class="doctor-action">
-                    <button class="btn-daftar-doctor">Daftar</button>
+                    <button class="btn-daftar-doctor"
+                        onclick="daftarDokter('dr. Gavin Naraya Caesaerar')">Daftar</button>
                 </div>
             </div>
 
             <!-- Doctor Card 4 - dr. Maydwi Marsyahada -->
-            <div class="doctor-card">
+            <div class="doctor-card" data-name="dr. Maydwi Marsyahada" data-spesialis="Paru,Saraf,Kulit & Kelamin">
                 <div class="doctor-image">
                     <img src="src/may.png" alt="dr. Maydwi Marsyahada, Sp.P, Sp.KK" class="doctor-photo">
                 </div>
@@ -232,7 +242,7 @@
                     </div>
                 </div>
                 <div class="doctor-action">
-                    <button class="btn-daftar-doctor">Daftar</button>
+                    <button class="btn-daftar-doctor" onclick="daftarDokter('dr. Maydwi Marsyahada')">Daftar</button>
                 </div>
             </div>
         </div>
@@ -256,6 +266,75 @@
             <button class="btn-tulis">Tulis</button>
         </div>
     </footer>
+
+    <script>
+        // Filter doctors function
+        function filterDoctors() {
+            const searchInput = document.getElementById('search-dokter').value.toLowerCase();
+            const kategoriFilter = document.getElementById('kategori-filter').value;
+            const doctorCards = document.querySelectorAll('.doctor-card');
+
+            doctorCards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const spesialis = card.dataset.spesialis;
+
+                let matchSearch = name.includes(searchInput);
+                let matchKategori = !kategoriFilter || spesialis.includes(kategoriFilter);
+
+                if (matchSearch && matchKategori) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Redirect to daftar with selected doctor
+        function daftarDokter(namaDokter) {
+            window.location.href = 'daftar.html?dokter=' + encodeURIComponent(namaDokter);
+        }
+
+        // Event listeners for real-time filtering
+        document.getElementById('search-dokter').addEventListener('input', filterDoctors);
+        document.getElementById('kategori-filter').addEventListener('change', filterDoctors);
+
+        // Check URL parameters on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const spesialis = urlParams.get('spesialis');
+            const nama = urlParams.get('nama');
+
+            if (spesialis) {
+                // Map URL param values to display values
+                const spesialisMap = {
+                    'dokter-umum': 'Dokter Umum',
+                    'tht': 'THT',
+                    'mata': 'Mata',
+                    'gigi': 'Gigi',
+                    'gizi': 'Gizi',
+                    'dokter-anak': 'Anak',
+                    'bedah-umum': 'Bedah Umum',
+                    'penyakit-dalam': 'Penyakit Dalam',
+                    'jantung': 'Jantung',
+                    'paru-paru': 'Paru',
+                    'saraf': 'Saraf',
+                    'kulit-dan-kelamin': 'Kulit & Kelamin'
+                };
+
+                const mappedValue = spesialisMap[spesialis] || spesialis;
+                document.getElementById('kategori-filter').value = mappedValue;
+            }
+
+            if (nama) {
+                document.getElementById('search-dokter').value = nama;
+            }
+
+            // Apply filter if any parameter exists
+            if (spesialis || nama) {
+                filterDoctors();
+            }
+        });
+    </script>
 </body>
 
 </html>

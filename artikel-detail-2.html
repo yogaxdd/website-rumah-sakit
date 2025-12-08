@@ -49,8 +49,8 @@
             <!-- Artikel Header -->
             <div class="artikel-detail-header">
                 <div class="artikel-detail-meta">
-                    <h2>Meningkatkan Kualitas Pelayanan Kesehatan di Rumah Sakit Nusantara Medika</h2>
-                    <p class="artikel-detail-date">31 Februari 2045</p>
+                    <h2>Manfaat Vaksinasi untuk Melindungi Kesehatan Masyarakat</h2>
+                    <p class="artikel-detail-date">8 Desember 2024</p>
                 </div>
                 <div class="artikel-social">
                     <span>Ikuti Kami di Sosial Media</span>
@@ -63,29 +63,39 @@
 
             <!-- Artikel Content -->
             <div class="artikel-detail-content">
-                <p>Rumah Sakit Nusantara Medika merupakan salah satu fasilitas kesehatan yang berkomitmen memberikan
-                    pelayanan terbaik bagi masyarakat. Dengan tenaga medis yang profesional dan peralatan modern, rumah
-                    sakit ini terus berupaya menghadirkan pengalaman perawatan yang aman, nyaman, dan terpercaya.</p>
+                <p>Vaksinasi merupakan salah satu inovasi terbesar dalam dunia kesehatan modern. Melalui vaksin, tubuh
+                    diberi kemampuan untuk membentuk antibodi tanpa harus mengalami penyakit terlebih dahulu. Cara kerja
+                    ini membuat vaksin menjadi langkah preventif yang sangat efektif dalam menurunkan angka kesakitan
+                    dan kematian akibat penyakit menular.</p>
 
-                <p>Sebagai pusat pelayanan kesehatan terpadu, Rumah Sakit Nusantara Medika menyediakan berbagai layanan
-                    mulai dari pemeriksaan umum, rawat inap, unit gawat darurat 24 jam, hingga layanan spesialis seperti
-                    penyakit dalam, kebidanan, anak, dan bedah. Setiap layanan didukung oleh dokter dan perawat
-                    berpengalaman
-                    yang siap memberikan perhatian penuh kepada setiap pasien.</p>
+                <p>Di Indonesia, program imunisasi rutin telah berhasil menekan penyebaran banyak penyakit seperti
+                    campak, difteri, pertusis, dan tetanus. Selain itu, vaksinasi juga membantu mengurangi risiko
+                    Kejadian Luar Biasa (KLB) pada penyakit yang mudah menyebar di masyarakat.</p>
 
-                <p>Selain itu, rumah sakit juga memiliki fasilitas penunjang seperti laboratorium, radiologi, farmasi,
-                    serta
-                    ruang perawatan yang dirancang untuk memberikan kenyamanan bagi keluarga. Dengan sistem pendaftaran
-                    yang
-                    mudah dan cepat, pasien dapat mengakses layanan kesehatan tanpa harus menunggu terlalu lama.</p>
+                <h3>Bagaimana Vaksin Bekerja?</h3>
+                <p>Ketika vaksin masuk ke dalam tubuh, sistem imun akan mengenali antigen yang dilemahkan atau
+                    dimodifikasi. Reaksi ini membuat tubuh membentuk antibodi sebagai bentuk perlindungan. Jika suatu
+                    saat virus asli masuk, tubuh sudah siap melawannya.</p>
 
-                <p>Rumah Sakit Nusantara Medika akan terus berinovasi dalam meningkatkan mutu pelayanan, demi menjadi
-                    rumah
-                    sakit pilihan masyarakat yang mengutamakan keselamatan pasien dan kepuasan layanan. Dengan visi
-                    menjadi
-                    pusat kesehatan terkemuka, rumah sakit ini berkomitmen memberikan pelayanan yang humanis,
-                    profesional,
-                    dan berkualitas tinggi.</p>
+                <h3>Jenis Vaksin yang Umum Tersedia di Rumah Sakit</h3>
+                <ul>
+                    <li><strong>Vaksin untuk Anak:</strong> BCG, DPT, Polio, MMR, Hepatitis B</li>
+                    <li><strong>Vaksin untuk Dewasa:</strong> Influenza, Hepatitis A, Tetanus, HPV</li>
+                    <li><strong>Vaksin untuk Lansia:</strong> Pneumonia, Influenza tahunan</li>
+                    <li><strong>Vaksinasi untuk Calon Pengantin:</strong> Rubella, Hepatitis B, Tetanus</li>
+                </ul>
+
+                <h3>Mengapa Vaksinasi Sangat Penting?</h3>
+                <ul>
+                    <li>Melindungi diri dan keluarga dari penyakit menular</li>
+                    <li>Mencegah penyebaran penyakit di komunitas</li>
+                    <li>Mengurangi biaya pengobatan jangka panjang</li>
+                    <li>Mendukung terciptanya herd immunity</li>
+                </ul>
+
+                <p>Rumah sakit kami menyediakan layanan imunisasi lengkap yang dilakukan oleh tenaga kesehatan
+                    profesional. Konsultasikan kebutuhan vaksin Anda untuk mengetahui jenis vaksin yang paling sesuai
+                    dengan usia dan kondisi kesehatan.</p>
             </div>
 
             <!-- Komentar Section -->
@@ -129,6 +139,26 @@
             <button class="btn-tulis">Tulis</button>
         </div>
     </footer>
+
+    <script>
+        // Validasi form komentar
+        document.querySelector('.komentar-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Cek apakah reCAPTCHA sudah diisi
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) {
+                alert('Mohon verifikasi bahwa Anda bukan robot dengan mencentang reCAPTCHA.');
+                return false;
+            }
+
+            // Jika semua validasi berhasil
+            alert('Komentar berhasil dikirim! Terima kasih atas partisipasi Anda.');
+            this.reset();
+            grecaptcha.reset();
+        });
+    </script>
 </body>
 
 </html>

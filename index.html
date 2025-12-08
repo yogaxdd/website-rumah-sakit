@@ -79,10 +79,10 @@
                     <img src="src/cari-dokter.png" alt="Cari Dokter">
                 </div>
             </div>
-            <form class="search-doctor-form">
+            <form class="search-doctor-form" id="search-doctor-form">
                 <div class="form-group">
                     <label>Cari Dokter <span>*opsional</span></label>
-                    <input type="text" placeholder="Nama Dokter">
+                    <input type="text" placeholder="Nama Dokter" id="nama-dokter-search">
                 </div>
                 <div class="form-group">
                     <label>Spesialis</label>
@@ -102,7 +102,7 @@
                         <option value="kulit-dan-kelamin">Kulit & Kelamin</option>
                     </select>
                 </div>
-                <a href="cari-dokter.html" class="btn-daftar">Cari Dokter</a>
+                <button type="submit" class="btn-daftar">Cari Dokter</button>
             </form>
         </div>
     </section>
@@ -192,6 +192,31 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Handle search doctor form
+        document.getElementById('search-doctor-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const spesialis = document.getElementById('spesialis').value;
+            const namaDokter = document.getElementById('nama-dokter-search').value.trim();
+
+            let url = 'cari-dokter.html';
+            const params = new URLSearchParams();
+
+            if (spesialis) {
+                params.append('spesialis', spesialis);
+            }
+            if (namaDokter) {
+                params.append('nama', namaDokter);
+            }
+
+            if (params.toString()) {
+                url += '?' + params.toString();
+            }
+
+            window.location.href = url;
+        });
+    </script>
 </body>
 
 </html>

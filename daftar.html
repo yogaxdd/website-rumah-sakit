@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar</title>
+    <title>Daftar - Rumah Sakit Nusantara Medika</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body id="top">
@@ -55,9 +56,104 @@
             <input type="radio" id="female" name="gender" value="female">
             <label for="female">Perempuan</label><br>
             <label for="no-hp">Nomor HP Aktif</label>
-            <input type="number" id="no-hp" value="no-hp">
+            <input type="number" id="no-hp" name="no-hp" placeholder="No. Hp" required>
+
+            <label for="pilih-dokter">Pilih Dokter</label>
+            <select id="pilih-dokter" name="pilih-dokter" required>
+                <option value="">-- Pilih Dokter --</option>
+                <option value="dr. Yoga Rizki Pratama">dr. Yoga Rizki Pratama, Sp.M, Sp.THT-KL</option>
+                <option value="drg. Muhammad Dzikrul Kahfi">drg. Muhammad Dzikrul Kahfi, Sp.GK, Sp.A</option>
+                <option value="dr. Gavin Naraya Caesaerar">dr. Gavin Naraya Caesaerar, Sp.PD, Sp.JP</option>
+                <option value="dr. Maydwi Marsyahada">dr. Maydwi Marsyahada, Sp.P, Sp.KK</option>
+            </select>
+
+            <div class="recaptcha-container">
+                <div class="g-recaptcha" data-sitekey="6LfW2CQsAAAAAF9xh302lRWByX2IXKQ4emghlzot" id="recaptcha-daftar">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-daftar">Daftar</button>
         </form>
     </div>
+
+    <script>
+        // Auto-fill doctor from URL parameter
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dokter = urlParams.get('dokter');
+
+            if (dokter) {
+                const dokterSelect = document.getElementById('pilih-dokter');
+                // Find and select the option that matches
+                for (let option of dokterSelect.options) {
+                    if (option.value === dokter) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+        });
+
+        // Validasi form pendaftaran
+        document.querySelector('.card-pendaftaran form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Cek apakah reCAPTCHA sudah diisi
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) {
+                alert('Mohon verifikasi bahwa Anda bukan robot dengan mencentang reCAPTCHA.');
+                return false;
+            }
+
+            // Validasi field lainnya
+            const namaLengkap = document.getElementById('nama-lengkap').value.trim();
+            const nik = document.getElementById('nik').value.trim();
+            const tglLahir = document.getElementById('tgl-lahir').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const noHp = document.getElementById('no-hp').value.trim();
+            const dokter = document.getElementById('pilih-dokter').value;
+
+            if (!namaLengkap) {
+                alert('Mohon isi nama lengkap Anda.');
+                return false;
+            }
+
+            if (!nik || nik.length < 16) {
+                alert('Mohon isi NIK yang valid (minimal 16 digit).');
+                return false;
+            }
+
+            if (!tglLahir) {
+                alert('Mohon isi tanggal lahir Anda.');
+                return false;
+            }
+
+            if (!gender) {
+                alert('Mohon pilih jenis kelamin Anda.');
+                return false;
+            }
+
+            if (!noHp) {
+                alert('Mohon isi nomor HP yang aktif.');
+                return false;
+            }
+
+            if (!dokter) {
+                alert('Mohon pilih dokter yang ingin dikunjungi.');
+                return false;
+            }
+
+            // Generate random queue number
+            const queueNumber = String(Math.floor(Math.random() * 9000) + 1000).padStart(4, '0');
+
+            // Show success message with queue number
+            alert(`Pendaftaran berhasil!\n\nNama: ${namaLengkap}\nDokter: ${dokter}\nNomor Antrean: ${queueNumber}\n\nSilakan datang ke RS Nusantara Medika dengan membawa kartu identitas.`);
+
+            this.reset();
+            grecaptcha.reset();
+        });
+    </script>
 
 </body>
 
