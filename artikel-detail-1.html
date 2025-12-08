@@ -26,7 +26,7 @@
                     <h2>MEDIKA</h2>
                 </div>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="index.html#profil">Profil</a></li>
                 <li><a href="index.html#fasilitas">Fasilitas</a></li>
@@ -34,7 +34,13 @@
                 <li><a href="index.html#pelayanan">Pelayanan</a></li>
                 <li><a href="index.html#kontak">Kontak</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
     </header>
 
     <div class="artikel-detail-page">
@@ -149,6 +155,7 @@
             grecaptcha.reset();
         });
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

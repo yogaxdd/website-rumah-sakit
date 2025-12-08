@@ -1,3 +1,36 @@
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const navOverlay = document.getElementById('nav-overlay');
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        if (navOverlay) navOverlay.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+}
+
 const profilMenuItems = document.querySelectorAll('.profil-menu li');
 const profilTextBox = document.querySelector('.profil-text-box');
 
@@ -53,7 +86,7 @@ const content = {
 };
 
 profilMenuItems.forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
         profilMenuItems.forEach(i => i.classList.remove('active'));
         this.classList.add('active');
         const menuText = this.textContent.trim();
